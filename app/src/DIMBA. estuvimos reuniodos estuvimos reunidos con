@@ -1,0 +1,16 @@
+DIMBA. estuvimos reuniodos estuvimos reunidos con el equipo completo y discutimos sobre los documentos y la explicacion que me diste en nuestra reunion del martes, decidimos dividir y encarar el tema de dos frentes.
+La definicion de "una barrera generica" de donde podamos hacer una herencia para X barreras, conjuntamnete ir detallando una interfaz comun compatible con el modelo de alarma de CAPE para aprovechar lo desarrollado hasta el momento tanto en firmaware como en software.
+
+Hugo esta analizando el modelo de la alarma de cape de la pagina 15/15 para ver si de alli podemos definir como  se obtinen por ejemplo de señal de ocupacion o falla de campana y optica dañana pero que no hacen a el funcionamiento de la maquina de estados de la barrera.
+
+Definimos que lo principal que hace cambiar de estados a la maquina son las señales de ocupacion y los fines de carrera (angulo de brazo), las demas señales seran de monitorizacion de la barrera.
+
+....
+Esta semana estuvimos trabajndo sobre el modulo gsm y ya pudimos hacer la conexion con los comandos AT, que comprobamos con las llamadas envio de sms y tambien conexion de internet anda completamente, solo que desarrollar el software como tal.
+
+y yo por mi parte empezaria el software del lado del servidor para poder publicar en Gdrive
+....
+
+....
+estamos juntando un par de chicos interesados en apredner la ciaa y la idea es aprovechar y armar un equipo de desarrollo. y ahi emanuel envio un audio al grupo comentando un poco sobre el curso que vamos a dar en oct/noviembre para ingenieria en electronica.
+
