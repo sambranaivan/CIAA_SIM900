@@ -9,12 +9,32 @@
 #include "program.h"   // <= Own header
 #include "sapi.h"      // <= sAPI library
 #include "gsm.h"
+#include "sim900.h"
 /*==================[macros and definitions]=================================*/
 
 /*==================[internal data declaration]==============================*/
 
 /*==================[internal functions declaration]=========================*/
+void console(char* msg)
+{
+ uartWriteString(UART_USB, msg);
+ uartWriteByte( UART_232, '\r' );
+  uartWriteByte( UART_232, '\n' );
+}
 
+void sendAT(char* AT)
+{
+ uartWriteString(UART_232,AT);
+  uartWriteByte( UART_232, '\r' );
+  uartWriteByte( UART_232, '\n' );
+}
+
+void leerBuffer(char *buffer)
+{
+  cleanBuffer(buffer,70);
+    readBuffer(UART_232, buffer,STR_MAX, TIMEOUT_MAX);
+    console(buffer);
+}
 /*==================[internal data definition]===============================*/
 
 /*==================[external data definition]===============================*/
@@ -25,47 +45,33 @@
 int main( void ){
 
    // ---------- SETUP ----------------------------------------
+  char buffer[70];//buffer de lectura de puerto serial
+ 
    // Initialize an configurate the board
    boardConfig();   
    uartConfig( UART_232, 19200 );//para comandos at
    uartConfig( UART_USB, 19200 );//para 
-uartWriteString(UART_USB,"INICIO DE PROGRAMA");
-    char buffer[70];
-    uartWriteString(UART_232, "AT");
-    uartWriteByte( UART_232, '\r' );
-	uartWriteByte( UART_232, '\n' );
-    delay(3000);
     
-    cleanBuffer(buffer,70);
-    readBuffer(UART_232, buffer,STR_MAX, TIMEOUT_MAX);
-    uartWriteString(UART_USB,buffer);
+    console("INICIANDO PROGRAMA");
+    sendAT("AT");
+    delay(100);
+    leerBuffer(buffer);
     
-    uartWriteString(UART_232, "AT+CPIN?");
-     uartWriteByte( UART_232, '\r' );
-	uartWriteByte( UART_232, '\n' );
-    delay(3000);
     
-    cleanBuffer(buffer,70);
-    readBuffer(UART_232, buffer,STR_MAX, TIMEOUT_MAX);
-    uartWriteString(UART_USB,buffer);
+    sendAT("AT+CPIN?");
+    delay(100);
     
-    uartWriteString(UART_232, "AT+CREG=1");
-    uartWriteByte( UART_232, '\r' );
-	uartWriteByte( UART_232, '\n' );
-    delay(3000);
+   leerBuffer(buffer);
+    sendAT("AT+CREG=1");
+ delay(100);
     
-    cleanBuffer(buffer,70);
-    readBuffer(UART_232, buffer,STR_MAX, TIMEOUT_MAX);
-    uartWriteString(UART_USB,buffer);
+   leerBuffer(buffer);
     
-    uartWriteString(UART_232, "ATD3795013243;");
-     uartWriteByte( UART_232, '\r' );
-	uartWriteByte( UART_232, '\n' );
+    sendAT("ATD3795013243;");
+
     delay(30000);
     
-    cleanBuffer(buffer,70);
-    readBuffer(UART_232, buffer,STR_MAX, TIMEOUT_MAX);
-    uartWriteString(UART_USB,buffer);
+    leerBuffer(buffer);
 
    
     
