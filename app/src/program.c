@@ -114,6 +114,7 @@ int main( void ){
   
 
   // Set the APN
+  // APN PARA CLARO
   sendAT("AT+SAPBR=3,1,\"APN\",\"igprs.claro.com.ar\"",2000);
 
 
@@ -141,7 +142,7 @@ int main( void ){
  
     //HOST: www.sambrana.com.ar
     // METHOD GET: user = ciaa & data=sim900
-     sendAT("AT+HTTPPARA=\"URL\",\"http://www.sambrana.com.ar/ciaa/rest.php?user=ciaa&data=sim900_test\"",4000);
+     sendAT("AT+HTTPPARA=\"URL\",\"http://www.linsse.com.ar/ciaa/rest.php?user=ciaa&data=sim900_test\"",4000);
 
 
    // set http action type 0 = GET, 1 = POST, 2 = HEAD
