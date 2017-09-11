@@ -15,9 +15,9 @@ extern "C" {
 
 /*==================[macros]=================================================*/
 
-#define STR_MAX 100
+#define STR_MAX 200
 #define NUM_MAX 25
-#define TIMEOUT_MAX 2000
+#define TIMEOUT_MAX 3000
 #define MAX_MSGS 5
 #define RESET_PIN GPIO8
 
