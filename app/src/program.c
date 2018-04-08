@@ -67,7 +67,7 @@ int main( void ){
     // Initialize an configurate the board
     boardConfig();   
     uartConfig( UART_232, 19200 );//para comandos at
-    uartConfig( UART_USB, 19200 );//para 
+    uartConfig( UART_USB, 19200 );//para conexion con la PC
 
   
     console("INICIANDO PROGRAMA");
